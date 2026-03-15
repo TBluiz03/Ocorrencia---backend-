@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SOSBackClean.Application\SOSBackClean.Application.csproj" />
+    <ProjectReference Include="..\SOSBackClean.Data\SOSBackClean.Data.csproj" />
+    <ProjectReference Include="..\SOSBackClean.Domain\SOSBackClean.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
