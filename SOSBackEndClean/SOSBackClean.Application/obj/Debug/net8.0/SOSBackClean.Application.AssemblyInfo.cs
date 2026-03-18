@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SOSBackClean.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c65e269760abdbee1e87eabee98d05c16f38ff7")]
 [assembly: System.Reflection.AssemblyProductAttribute("SOSBackClean.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SOSBackClean.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

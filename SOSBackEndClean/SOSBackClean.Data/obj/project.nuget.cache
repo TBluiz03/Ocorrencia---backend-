@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "egvHvu8q6FpWHYAj2fA1pEouz14YnM876PwAmPhkvsQxEyyCEPtWXJ2SjAty0GYurFJAccfWveCVrk6rE/QzlA==",
+  "dgSpecHash": "3Pb3IONjMk0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\PG\\Desktop\\Projeto U\\2026\\Fabrica de projetos\\SOSBackEndClean\\SOSBackClean.Data\\SOSBackClean.Data.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Usuário\\source\\repos\\Ocorrencia---backend-\\SOSBackEndClean\\SOSBackClean.Data\\SOSBackClean.Data.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Usuário\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.25\\microsoft.windowsdesktop.app.ref.8.0.25.nupkg.sha512",
+    "C:\\Users\\Usuário\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.25\\microsoft.netcore.app.ref.8.0.25.nupkg.sha512",
+    "C:\\Users\\Usuário\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.25\\microsoft.aspnetcore.app.ref.8.0.25.nupkg.sha512"
+  ],
   "logs": []
 }
