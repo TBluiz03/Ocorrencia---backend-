@@ -28,7 +28,7 @@ namespace SOSBackClean.Domain.Entities
             Cargo = cargo;
         }
 
-        public string AtualizarDados(string NovoNome)
+        public string AtualizarNome(string NovoNome)
         {
             if(NovoNome == Nome)
             {
