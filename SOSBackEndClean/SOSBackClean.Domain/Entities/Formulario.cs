@@ -1,4 +1,5 @@
-﻿using SOSBackClean.Domain.ValueObjects;
+﻿using SOSBackClean.Domain.Validation;
+using SOSBackClean.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,54 @@ namespace SOSBackClean.Domain.Entities
 {
     public class Formulario
     {
+        public string Id; 
         public string? Nome;
         public Predios Predios;
+        public Funcionario? Funcionario;
+        public INFRACAO Infracao;
+        public string Descricao;
+        public string Arquivo;
+
+
+        public Formulario(string? nome, Predios predios, Funcionario? funcionario, INFRACAO infracao, string descricao, string? arquivo)
+        {
+            Validation(nome, predios, funcionario, infracao, descricao, arquivo);
+            
+        }
+
+        public Formulario(string? nome, Predios predios, Funcionario? funcionario, INFRACAO infracao, string descricao, string? arquivo, string id) {  
+            Validation(nome, predios, funcionario, infracao, descricao, arquivo);
+            Id = id;
+            
+        }
+
+        public void Validation(string? nome, Predios predios, Funcionario? funcionario, INFRACAO infracao, string descricao, string? arquivo)
+        {
+            
+            DomainValidation.When(nome != null && nome.Length < 3, "O nome do usuário não pode ter menos de 3 letras. ");
+            
+            Nome = nome;
+            Predios = predios;
+            Funcionario = funcionario;
+            Infracao = infracao;
+            Descricao = descricao;
+            Arquivo = arquivo;
+            
+        }
+        public static string GerarId(List<string> IdExistente)
+        {
+            string random = new Random().Next(100).ToString();
+
+
+            if (IdExistente.Contains(random))
+            {
+                return GerarId(IdExistente);
+            }
+
+            return random.ToString();
+        }
+
+
 
 
     }

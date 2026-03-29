@@ -1,4 +1,5 @@
 ﻿using SOSBackClean.Domain.Validation;
+using SOSBackClean.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,12 +72,4 @@ namespace SOSBackClean.Domain.Entities
         }
     }
 
-
-    public enum CARGO {
-        MEDICO, 
-        ENFERMEIRO,
-        SECRETARIO,
-        TECNICO,
-        MANUTENCAO 
-    }
 }

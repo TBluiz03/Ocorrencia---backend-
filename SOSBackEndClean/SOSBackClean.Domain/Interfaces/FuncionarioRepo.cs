@@ -1,4 +1,5 @@
 ﻿using SOSBackClean.Domain.Entities;
+using SOSBackClean.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SOSBackClean.Domain.Interfaces
 {
-    public interface FuncinarioRepo
+    public interface FuncionarioRepo
     {
         //Comandos
         Task<Funcionario> AtualizarNome(string NovoNome);
