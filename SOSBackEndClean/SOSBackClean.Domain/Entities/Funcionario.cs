@@ -11,19 +11,21 @@ namespace SOSBackClean.Domain.Entities
 {
     public class Funcionario
     {
-        public string Nome;
-        public string? Foto;
-        public CARGO Cargo;
+        public int Id { get; private set; }
+        public string Nome { get; private set; }
+        public string? Foto { get; private set; }
+        public CARGO Cargo { get; private set; }
 
-        public Funcionario(string nome, string? foto, CARGO cargo)
+        public Funcionario(int id, string nome, string? foto, CARGO cargo)
         {
-            Validation(nome, foto, cargo);
+            Validation(id,nome, foto, cargo);
         }
-        public void Validation(string nome, string? foto, CARGO cargo)
+        public void Validation(int id, string nome, string? foto, CARGO cargo)
         {
-            DomainValidation.When(string.IsNullOrEmpty(Nome), "O nome do funcionário é obrigatório.");
-            DomainValidation.When(Nome.Length < 3, "O nome do funcionário não pode ter menos de 3 letras. ");
+            DomainValidation.When(string.IsNullOrEmpty(nome), "O nome do funcionário é obrigatório.");
+            DomainValidation.When(nome.Length < 3, "O nome do funcionário não pode ter menos de 3 letras. ");
 
+            Id = id;
             Nome = nome;
             Foto = foto;
             Cargo = cargo;

@@ -10,13 +10,13 @@ namespace SOSBackClean.Domain.Entities
 {
     public class Formulario
     {
-        public string Id; 
-        public string? Nome;
-        public Predios Predios;
-        public Funcionario? Funcionario;
-        public INFRACAO Infracao;
-        public string Descricao;
-        public string Arquivo;
+        public string Id { get; private set; }
+        public string? Nome { get; private set; }
+        public Predios Predios { get; private set; }
+        public Funcionario? Funcionario { get; private set; }
+        public INFRACAO Infracao { get; private set; }
+        public string Descricao { get; private set; }
+        public string Arquivo { get; private set; }
 
 
         public Formulario(string? nome, Predios predios, Funcionario? funcionario, INFRACAO infracao, string descricao, string? arquivo)

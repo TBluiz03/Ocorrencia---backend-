@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SOSBackClean.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf46ccec6759e0e260c1aa0db18ff902e2b8b293")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f9f749c53883c2cad168e672c9e3050334d3096")]
 [assembly: System.Reflection.AssemblyProductAttribute("SOSBackClean.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SOSBackClean.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
