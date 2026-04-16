@@ -20,7 +20,7 @@ namespace SOSBackClean.Application.Services
         //Comandos
 
         //O formulario que chega via parametro vem sem o id e oformulario que enviamos no método create já tem o id gerado
-        public async Task<Formulario> CreateFormulario(Formulario formulario_1)
+        /*public async Task<Formulario> CreateFormulario(Formulario formulario_1)
         {
             var IdExistente = GetFormularios().Result.Select(x => x.Id).ToList(); //Retorna uma lista dos ids existentes
 
@@ -28,13 +28,14 @@ namespace SOSBackClean.Application.Services
                 formulario_1.Descricao, formulario_1.Arquivo, Formulario.GerarId(IdExistente));
             return await _FormularioRepo.Create(Formulario_2);
         }
+        */
         public async Task<Formulario> UpdateFormulario(Formulario formulario)
         {
-            return await _FormularioRepo.Update(formulario.Id, formulario);
+            return await _FormularioRepo.Update(formulario);
         }
-        public async Task<Formulario> RemoveFormulario(string Id)
+        public async Task<Formulario> RemoveFormulario(int id)
         {
-            return await _FormularioRepo.Remove(Id);
+            return await _FormularioRepo.Remove(id);
         }
         //Consultas
         //Função usada pelo adm para listar os formulários
@@ -43,9 +44,9 @@ namespace SOSBackClean.Application.Services
             return await _FormularioRepo.GetFormularios();
         }
         //Função usada pelo usuário para visualizar sua ocorrência
-        public async Task<Formulario> GetFormularioById(string Id)
+        public async Task<Formulario> GetFormularioById(int id)
         {
-            return await _FormularioRepo.GetFormularioById(Id);
+            return await _FormularioRepo.GetFormularioById(id);
         }
     }
 }

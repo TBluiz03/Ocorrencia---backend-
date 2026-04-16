@@ -1,5 +1,7 @@
 ﻿using SOSBackClean.Data.Context;
+using SOSBackClean.Data.Repositories;
 using SOSBackClean.Domain;
+using SOSBackClean.Domain.Entities;
 using System.Runtime.CompilerServices;
 
 class TestClass
@@ -10,5 +12,6 @@ class TestClass
         var context = new ApiDbContext();
 
         context.Database.EnsureCreated();
+
     }
 }

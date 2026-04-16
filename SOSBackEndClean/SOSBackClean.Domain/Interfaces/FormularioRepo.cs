@@ -10,14 +10,14 @@ namespace SOSBackClean.Domain.Interfaces
 {
     public interface FormularioRepo
     {
-        Task<Formulario> GetFormularioById(string Id);
+        Task<Formulario> GetFormularioById(int id);
 
         Task<IEnumerable<Formulario>> GetFormularios();
 
-        Task<Formulario> Remove(string Id);
+        Task<Formulario> Remove(int id);
 
         Task<Formulario> Create(Formulario formulario);
         
-        Task<Formulario> Update(string Id, Formulario formulario);
+        Task<Formulario> Update(Formulario formulario);
     }
 }

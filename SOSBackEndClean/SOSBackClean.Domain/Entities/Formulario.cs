@@ -10,22 +10,27 @@ namespace SOSBackClean.Domain.Entities
 {
     public class Formulario
     {
-        public string Id { get; private set; }
+        public int Id { get; private set; }
         public string? Nome { get; private set; }
-        public Predios Predios { get; private set; }
-        public Funcionario? Funcionario { get; private set; }
+       // public Predios Predios { get; private set; }
+       // public Funcionario? Funcionario { get; private set; }
         public INFRACAO Infracao { get; private set; }
         public string Descricao { get; private set; }
         public string Arquivo { get; private set; }
 
 
-        public Formulario(string? nome, Predios predios, Funcionario? funcionario, INFRACAO infracao, string descricao, string? arquivo)
+        public Formulario(string? nome, INFRACAO infracao, string descricao, string? arquivo)
         {
-            Validation(nome, predios, funcionario, infracao, descricao, arquivo);
-            
+            Nome = nome;
+            // Predios = predios;
+            // Funcionario = funcionario;
+            Infracao = infracao;
+            Descricao = descricao;
+            Arquivo = arquivo;
+
         }
 
-        public Formulario(string? nome, Predios predios, Funcionario? funcionario, INFRACAO infracao, string descricao, string? arquivo, string id) {  
+        public Formulario(string? nome, Predios predios, Funcionario? funcionario, INFRACAO infracao, string descricao, string? arquivo, int id) {  
             Validation(nome, predios, funcionario, infracao, descricao, arquivo);
             Id = id;
             
@@ -37,8 +42,8 @@ namespace SOSBackClean.Domain.Entities
             DomainValidation.When(nome != null && nome.Length < 3, "O nome do usuário não pode ter menos de 3 letras. ");
             
             Nome = nome;
-            Predios = predios;
-            Funcionario = funcionario;
+           // Predios = predios;
+           // Funcionario = funcionario;
             Infracao = infracao;
             Descricao = descricao;
             Arquivo = arquivo;
