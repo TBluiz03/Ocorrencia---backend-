@@ -29,6 +29,12 @@ namespace SOSBackClean.Data.Repositories
             return await _formularioContext.Formulario.FindAsync(id);
         }
 
+        public async Task<IEnumerable<Formulario>> GetFormularioByProtocol(string protocolo)
+        {
+            return await _formularioContext.Formulario.Where(f =>
+            f._protocolo == protocolo).ToListAsync();
+        }
+
         public async Task<IEnumerable<Formulario>> GetFormularios()
         {
             return await _formularioContext.Formulario.ToListAsync();

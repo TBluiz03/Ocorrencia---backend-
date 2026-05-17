@@ -15,7 +15,8 @@ namespace SOSBackClean.Data.Context
             
         }
 
-        public DbSet<Funcionario> Funcionarios { get; set; }
+        public DbSet<Funcionario> Funcionario {get; set;}
+        public DbSet<Predio> Predio { get; set;}
         public DbSet<Formulario> Formulario { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -11,16 +11,8 @@ namespace SOSBackClean.Domain.Interfaces
 {
     public interface FuncionarioRepo
     {
-        //Comandos
-       // Task<Funcionario> AtualizarNome(string NovoNome);
-        
-       // Task<Funcionario> AtualizarCargo(CARGO NovoCargo);
-         
-       // Task<Funcionario> AtualizarFoto(string? NovaFoto);
-
-        Task<Funcionario> AtualizarFuncionario(Funcionario funcionarioExistente);
-
-        //Consultas
+     
+        Task<Funcionario> AtualizarFuncionario(int id);
 
         Task <Funcionario> GetFuncionarioById(int id);
 

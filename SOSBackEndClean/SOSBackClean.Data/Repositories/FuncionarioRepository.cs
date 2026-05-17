@@ -22,25 +22,25 @@ namespace SOSBackClean.Data.Repositories
         
         public async Task<Funcionario> AtualizarFuncionario(Funcionario funcionarioExistente)
         {
-            _funcionarioContext.Funcionarios.Update(funcionarioExistente);
+            _funcionarioContext.Funcionario.Update(funcionarioExistente);
             await _funcionarioContext.SaveChangesAsync();
             return funcionarioExistente;
         }
 
         public async Task<Funcionario> GetFuncionarioById(int id)
         {
-            return await _funcionarioContext.Funcionarios.FindAsync(id);
+            return await _funcionarioContext.Funcionario.FindAsync(id);
         }
 
         public async Task<IEnumerable<Funcionario>> GetFuncionarios()
         {
-            return await _funcionarioContext.Funcionarios.ToListAsync();
+            return await _funcionarioContext.Funcionario.ToListAsync();
         }
 
         public async Task<IEnumerable<Funcionario>> GetFuncionariosByCategory(CARGO cargo)
         {
-            return await _funcionarioContext.Funcionarios
-                .Where(f => f.Cargo == cargo)
+            return await _funcionarioContext.Funcionario
+                .Where(f => f._cargo == cargo)
                 .ToListAsync();
         }
     }

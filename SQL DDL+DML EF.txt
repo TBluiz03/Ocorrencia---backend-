@@ -1,0 +1,35 @@
+| SQL (DDL)         | EF Core                          |
+| ----------------- | -------------------------------- |
+| `CREATE DATABASE` | `EnsureCreated()` / `Migrate()`  |
+| `DROP DATABASE`   | `EnsureDeleted()`                |
+| `CREATE TABLE`    | `Migrate()` / `EnsureCreated()`  |
+| `ALTER TABLE`     | `Migration`                      |
+| `DROP TABLE`      | `Migration`                      |
+| `RENAME TABLE`    | `MigrationBuilder.RenameTable()` |
+| `CREATE INDEX`    | `HasIndex()`                     |
+| `PRIMARY KEY`     | `HasKey()`                       |
+| `FOREIGN KEY`     | `HasOne().WithMany()`            |
+| `NOT NULL`        | `.IsRequired()`                  |
+| `VARCHAR(100)`    | `.HasMaxLength(100)`             |
+| `DECIMAL(10,2)`   | `.HasPrecision(10,2)`            |
+
+
+| SQL (DML)  | EF Core                                 |
+| ---------- | ----------------------------------------|
+| `SELECT`   | `.ToList()` / LINQ                      |
+| `WHERE`    | `.Where()`                              |
+| `INSERT`   | `.Add()`                                |
+| `UPDATE`   | modificar entidade + `SaveChanges()`    |
+| `DELETE`   | `.Remove()`                             |
+| `JOIN`     | `.Include()` / LINQ                     |
+| `ORDER BY` | `.OrderBy()`                            |
+| `GROUP BY` | `.GroupBy()`                            |
+| `COUNT(*)` | `.Count()`                              |
+| `FIRST()`  | `.First()`                              |
+| `LIMIT`    | `.Take()`                               |
+| `OFFSET`   | `.Skip()`                               |
+| `ANY()`    | `.Any()`                                |
+| `EXISTS`   | `.Any()`                                |
+| `SUM()`    | `.Sum()`                                |
+| `AVG()`    | `.Average()`                            |
+

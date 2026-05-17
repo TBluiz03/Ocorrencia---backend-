@@ -12,28 +12,30 @@ namespace SOSBackClean.Domain.Entities
     public class Funcionario
     {
         public int Id { get; private set; }
-        public string Nome { get; private set; }
-        public string? Foto { get; private set; }
-        public CARGO Cargo { get; private set; }
+        public string _nome { get; private set; }
+        public string? _foto { get; private set; }
+        public CARGO _cargo { get; private set; }
 
-        public Funcionario(int id, string nome, string? foto, CARGO cargo)
+        public ICollection<Formulario> Formularios =  new List<Formulario>();
+
+
+        //------------------------------------------------------------------------
+        public Funcionario(string nome, string? foto, CARGO cargo)
         {
-            Validation(id,nome, foto, cargo);
+            Validation(nome, foto, cargo);
         }
-        public void Validation(int id, string nome, string? foto, CARGO cargo)
+        public void Validation(string nome, string? foto, CARGO cargo)
         {
             DomainValidation.When(string.IsNullOrEmpty(nome), "O nome do funcionário é obrigatório.");
             DomainValidation.When(nome.Length < 3, "O nome do funcionário não pode ter menos de 3 letras. ");
-
-            Id = id;
-            Nome = nome;
-            Foto = foto;
-            Cargo = cargo;
+            _nome = nome;
+            _foto = foto;
+            _cargo = cargo;
         }
 
         public string AtualizarNome(string NovoNome)
         {
-            if(NovoNome == Nome)
+            if(NovoNome == _nome)
             {
                 return "O novo nome não pode ser igual o anterior.";
             }
@@ -42,7 +44,7 @@ namespace SOSBackClean.Domain.Entities
                 DomainValidation.When(string.IsNullOrEmpty(NovoNome), "O nome do funcionário é obrigatório.");
                 DomainValidation.When(NovoNome.Length < 3, "O nome do funcionário não pode ter menos de 3 letras. ");
 
-                Nome = NovoNome;
+                _nome = NovoNome;
 
                 return "O nome foi atualizado com sucesso.";
             }
@@ -50,25 +52,25 @@ namespace SOSBackClean.Domain.Entities
         }
         public string AtualizarCargo(CARGO NovoCargo)
         {
-            if(NovoCargo == Cargo)
+            if(NovoCargo == _cargo)
             {
                 return "O novo cargo não pode ser igual o anterior.";
             }
             else
             {
-                Cargo = NovoCargo;
+                _cargo = NovoCargo;
                 return "O cargo foi atualizado com sucesso.";
             }
         }
         public string AtualizarFoto(string? NovaFoto)
         {
-            if(NovaFoto == Foto)
+            if(NovaFoto == _foto)
             {
                 return "A nova foto não pode ser igual a anterior.";
             }
             else
             {
-                Foto = NovaFoto;
+                _foto = NovaFoto;
                 return "A foto foi atualizada com sucesso.";
             }
         }

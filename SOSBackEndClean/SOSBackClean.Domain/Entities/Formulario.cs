@@ -11,59 +11,43 @@ namespace SOSBackClean.Domain.Entities
     public class Formulario
     {
         public int Id { get; private set; }
-        public string? Nome { get; private set; }
-       // public Predios Predios { get; private set; }
-       // public Funcionario? Funcionario { get; private set; }
-        public INFRACAO Infracao { get; private set; }
-        public string Descricao { get; private set; }
-        public string Arquivo { get; private set; }
+        public bool _statusResolucao { get; private set; } = false;
+        public string _protocolo { get; private set; }
+        public string? _nomeOfendido { get; private set; }
+        public string? _sala { get; private set; }
+        public int _andarOcorrencia { get; private set; }
+        public INFRACAO _tipoInfracao { get; private set; }
+        public string _descricao { get; private set; }
+        public string? _arquivo { get; private set; }
+        public string? _feedBack { get; private set; } = null;
+        
+        public int Predio_id { get; private set; }
+        public Predio Predio { get; private set; }
 
+        public int Funcionario_id { get; private set; }
+        public Funcionario? Funcionario { get; private set; }
 
-        public Formulario(string? nome, INFRACAO infracao, string descricao, string? arquivo)
+        public Formulario(
+            string protocolo,
+            string? nomeOfendido,
+            string? sala,
+            int andarOcorrencia,
+            INFRACAO infracao,
+            string descricao,
+            string? arquivo,
+            int predio_id, int funcionario_id)
         {
-            Nome = nome;
-            // Predios = predios;
-            // Funcionario = funcionario;
-            Infracao = infracao;
-            Descricao = descricao;
-            Arquivo = arquivo;
-
+            Validation();
         }
 
-        public Formulario(string? nome, Predios predios, Funcionario? funcionario, INFRACAO infracao, string descricao, string? arquivo, int id) {  
-            Validation(nome, predios, funcionario, infracao, descricao, arquivo);
-            Id = id;
-            
-        }
 
-        public void Validation(string? nome, Predios predios, Funcionario? funcionario, INFRACAO infracao, string descricao, string? arquivo)
+        public void Validation()
         {
             
-            DomainValidation.When(nome != null && nome.Length < 3, "O nome do usuário não pode ter menos de 3 letras. ");
-            
-            Nome = nome;
-           // Predios = predios;
-           // Funcionario = funcionario;
-            Infracao = infracao;
-            Descricao = descricao;
-            Arquivo = arquivo;
+           //Criar validações
             
         }
-        public static string GerarId(List<string> IdExistente)
-        {
-            string random = new Random().Next(100).ToString();
 
-
-            if (IdExistente.Contains(random))
-            {
-                return GerarId(IdExistente);
-            }
-
-            return random.ToString();
-        }
-
-
-
-
+        //Precisamos de métodos para atualizar feedback 
     }
 }
