@@ -46,6 +46,12 @@ namespace SOSBackClean.Data.EntitiesConfiguration
                 .HasColumnName("Funcionario_id")
                 .IsRequired();
 
+            // INFRATOR (ENUM -> INT)
+            builder.Property(x => x._infrator)
+                .HasColumnName("Infrator")
+                .HasConversion<int>()
+                .IsRequired();
+
             // INFRACAO (ENUM -> INT)
             builder.Property(x => x._tipoInfracao)
                 .HasColumnName("Infracao")
@@ -73,6 +79,11 @@ namespace SOSBackClean.Data.EntitiesConfiguration
                 .HasColumnName("FeedBack")
                 .HasColumnType("nvarchar(300)")
                 .HasDefaultValue(null);
+
+            // DATA
+            builder.Property(x => x._dataCriacao)
+                .HasColumnName("DataCriacao")
+                .IsRequired();
 
             // STATUS RESOLUCAO
             builder.Property(x => x._statusResolucao)

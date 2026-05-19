@@ -9,16 +9,19 @@ namespace SOSBackClean.Domain.Entities
 {
     public class Predio
     {
-
-        public int _nAndar {  get; set; }
         public int Id { get; set; }
-
+        public string _nome { get; set; }
+        public int _nAndar {  get; set; }
+        
         public ICollection<Formulario> formularios = new List<Formulario>();
 
-        public Predio(int andar, int predio, string? sala)
+        public Predio(int andar, string nome)
         {
+            //Falta colocar as validações (Luiz).
+
+            _nome = nome;
             _nAndar = andar;
-            Id = predio;
+   
         }
     }
 }

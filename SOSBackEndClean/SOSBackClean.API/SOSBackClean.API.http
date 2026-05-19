@@ -1,0 +1,6 @@
+@SOSBackClean.API_HostAddress = http://localhost:5259
+
+GET {{SOSBackClean.API_HostAddress}}/Api/Creation/
+Accept: application/json
+
+###

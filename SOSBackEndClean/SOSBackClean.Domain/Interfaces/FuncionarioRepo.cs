@@ -12,7 +12,7 @@ namespace SOSBackClean.Domain.Interfaces
     public interface FuncionarioRepo
     {
      
-        Task<Funcionario> AtualizarFuncionario(int id);
+        Task<Funcionario> AtualizarFuncionario(Funcionario fun);
 
         Task <Funcionario> GetFuncionarioById(int id);
 

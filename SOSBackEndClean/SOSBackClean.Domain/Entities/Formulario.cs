@@ -16,10 +16,13 @@ namespace SOSBackClean.Domain.Entities
         public string? _nomeOfendido { get; private set; }
         public string? _sala { get; private set; }
         public int _andarOcorrencia { get; private set; }
+        public INFRATOR _infrator { get; private set; }
         public INFRACAO _tipoInfracao { get; private set; }
         public string _descricao { get; private set; }
         public string? _arquivo { get; private set; }
         public string? _feedBack { get; private set; } = null;
+        public DateTime _dataCriacao {  get; private set; }
+        
         
         public int Predio_id { get; private set; }
         public Predio Predio { get; private set; }
@@ -38,6 +41,8 @@ namespace SOSBackClean.Domain.Entities
             int predio_id, int funcionario_id)
         {
             Validation();
+
+            _dataCriacao = DateTime.Now;
         }
 
 

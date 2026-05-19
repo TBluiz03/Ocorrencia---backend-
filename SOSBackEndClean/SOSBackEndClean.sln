@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOSBackClean.Data", "SOSBac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOSBackClean.Infra.IoC", "SOSBackClean.Infra.IoC\SOSBackClean.Infra.IoC.csproj", "{A43FC199-C00F-4565-89B7-4FBD96FBFFCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbContextTest", "DbContextTest\DbContextTest.csproj", "{713566F2-EBAD-4819-B93A-08D8825894CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbContextTest", "DbContextTest\DbContextTest.csproj", "{713566F2-EBAD-4819-B93A-08D8825894CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSBackClean.API", "SOSBackClean.API\SOSBackClean.API.csproj", "{6238012C-89EB-4950-9604-B15DF2BEA878}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{713566F2-EBAD-4819-B93A-08D8825894CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{713566F2-EBAD-4819-B93A-08D8825894CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{713566F2-EBAD-4819-B93A-08D8825894CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6238012C-89EB-4950-9604-B15DF2BEA878}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6238012C-89EB-4950-9604-B15DF2BEA878}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6238012C-89EB-4950-9604-B15DF2BEA878}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6238012C-89EB-4950-9604-B15DF2BEA878}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
