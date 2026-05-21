@@ -25,7 +25,6 @@ namespace SOSBackClean.Domain.Entities
         {
             DomainValidation.When(string.IsNullOrEmpty(nome), "O nome do prédio é obrigatório.");
             DomainValidation.When(nome.Length < 3, "O nome do prédio não pode ter menos de 3 letras. ");
-            DomainValidation.When(int.IsNullOrEmpty(andar), "O prédio precisa ter andares.");
             DomainValidation.When(andar < 0, "O andar não pode ter andares com valores negativos. ");
             DomainValidation.When(andar == 0, "O prédio precisa ter andares.");
 
