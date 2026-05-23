@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace SOSBackClean.Application.DTOs
 {
-    public record FormularioListItemDTO
+    public record FuncionarioDTO
     {
         public int Id { get; set; }
-        public bool _statusResolucao { get; set; }
-        public string _protocolo { get; set; }
-        public INFRACAO _tipoInfracao { get; set; }
-        public DateTime _dataCriacao { get; set; }
+        public string _nome { get; set; }
+        public string? _foto { get; set; }
+        public int _cargo { get; set; }
     }
 }

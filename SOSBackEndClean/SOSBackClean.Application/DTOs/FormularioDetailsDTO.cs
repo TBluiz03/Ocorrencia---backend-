@@ -11,20 +11,19 @@ namespace SOSBackClean.Application.DTOs
 {
     public record FormularioDetailsDTO
     {
-        public string? Ofendido { get; set; }
-        public string? sala { get; set; }
-        public int Andar { get; set; }
-        public int? Funcionario_id { get; set; }
-        public INFRATOR Infrator { get; set; }
-        public INFRACAO Infracao { get; set; }
-        public string Descricao { get; set; }
-        public string? Arquivo { get; set; }
-        public string? FeedBack { get; set; }
-        public bool Status { get; set; }
-        public DateTime DataCriacao { get; set; }
-        public string Protocolo { get; set; }
-        public Funcionario? Funcionario { get; set; }
-        public Predio Predio { get; set; }
+        public string? _nomeOfendido { get; set; }
+        public string? _sala { get; set; }
+        public int _andarOcorrencia { get; set; }
+        public INFRATOR _infrator { get; set; }
+        public INFRACAO _tipoInfracao { get; set; }
+        public string _descricao { get; set; }
+        public string? _arquivo { get; set; }
+        public string? _feedBack { get; set; }
+        public bool _statusResolucao { get; set; }
+        public DateTime _dataCriacao { get; set; }
+        public string _protocolo { get; set; }
+        public FuncionarioDTO? Funcionario { get; set; }
+        public PredioDTO Predio { get; set; }
 
     }
 }

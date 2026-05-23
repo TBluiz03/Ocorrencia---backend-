@@ -4,6 +4,7 @@ using SOSBackClean.Data.Context;
 using SOSBackClean.Data.Repositories;
 using SOSBackClean.Domain;
 using SOSBackClean.Domain.Entities;
+using System.Net;
 using System.Runtime.CompilerServices;
 
 class TestClass
@@ -12,16 +13,12 @@ class TestClass
     {
 
 
-        using var context = new ApiDbContext();
+        var repo = new FormularioRepository();
 
-        context.Database.EnsureCreated();
+        var form = repo.GetFormularioByProtocol("F804344").Result;
+        var form2 = repo.GetFormularioById(1).Result;
 
-      
-
-        var fun = context.Funcionario.Where(f => f.Id == 1).ToList();
-        context.Remove<Funcionario>(fun[0]);
-        context.SaveChanges();
-
+        Console.WriteLine("  Agora por Id: " + form2.Funcionario_id);
      
 
     }

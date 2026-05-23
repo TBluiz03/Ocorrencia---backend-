@@ -16,9 +16,6 @@ namespace SOSBackClean.Domain.Entities
         public string? _foto { get; private set; }
         public CARGO _cargo { get; private set; }
 
-        public ICollection<Formulario> Formularios =  new List<Formulario>();
-
-
         //------------------------------------------------------------------------
         public Funcionario(string nome, string? foto, CARGO cargo)
         {

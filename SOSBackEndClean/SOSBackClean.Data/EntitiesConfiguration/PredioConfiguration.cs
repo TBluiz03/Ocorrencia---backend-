@@ -27,7 +27,7 @@ namespace SOSBackClean.Data.EntitiesConfiguration
 
             // ANDARES
             builder.Property(x => x._nAndar)
-                .HasColumnName("Numero de Andares")
+                .HasColumnName("Numero_Andares")
                 .IsRequired();
         }
     }

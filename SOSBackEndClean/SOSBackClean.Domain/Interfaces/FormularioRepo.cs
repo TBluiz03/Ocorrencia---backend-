@@ -12,6 +12,8 @@ namespace SOSBackClean.Domain.Interfaces
     {
         Task<Formulario> GetFormularioById(int id);
 
+        Task<Formulario> GetFormularioByProtocol(string protocolo);
+
         Task<IEnumerable<Formulario>> GetFormularios();
 
         Task<Formulario> Remove(int id);
