@@ -61,7 +61,7 @@ namespace SOSBackClean.Domain.Entities
             //Criar validações
             //Criar validação para verificar se o protocolo é único (Luiz).
 
-            DomainValidation.When(infrator == 0 && funcionario_id == 0, "A ocorrência não bate com os requisitos, funcionario inexistente");
+            DomainValidation.When(infrator == 0 && funcionario_id <= 0, "A ocorrência não bate com os requisitos, funcionario inexistente");
             DomainValidation.When(andarOcorrencia == 0, "O andar da ocorrência é obrigatório.");
             DomainValidation.When(andarOcorrencia < 0, "O andar da ocorrência não pode ter valores negativos.");
             DomainValidation.When(tipoInfracao == 0, "O tipo de infração é obrigatório.");

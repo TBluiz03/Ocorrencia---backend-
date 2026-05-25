@@ -21,5 +21,7 @@ namespace SOSBackClean.Domain.Interfaces
         Task<Formulario> Create(Formulario formulario);
         
         Task<Formulario> Update(Formulario formulario);
+
+        Task<bool> ExistsProtocol(string protocol);
     }
 }

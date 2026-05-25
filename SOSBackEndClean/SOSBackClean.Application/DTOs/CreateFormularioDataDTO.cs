@@ -15,5 +15,7 @@ namespace SOSBackClean.Application.DTOs
         public IEnumerable<PredioDTO> Predios {  get; set; }
 
         public IEnumerable<FuncionarioDTO> Funcionarios { get; set; }
+
+        public CatalogDTO Catalog { get; set; }
     }
 }

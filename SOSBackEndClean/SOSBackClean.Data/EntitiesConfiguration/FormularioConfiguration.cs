@@ -30,6 +30,9 @@ namespace SOSBackClean.Data.EntitiesConfiguration
                 .HasColumnType("varchar(40)")
                 .IsRequired();
 
+            builder.HasIndex(x => x._protocolo)
+                .IsUnique();
+
             // OFENDIDO
             builder.Property(x => x._nomeOfendido)
                 .HasColumnName("Ofendido")

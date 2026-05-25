@@ -1,28 +1,42 @@
 ﻿using AutoMapper;
-using SOSBackClean.Application.Mappings;
-using SOSBackClean.Application.Services;
+using SOSBackClean.Application.Common;
+using SOSBackClean.Application.Interfaces;
+using SOSBackClean.Application.Services.CatalogServices;
+using SOSBackClean.Application.Services.FormularioServices;
 using SOSBackClean.Data.Repositories;
+using SOSBackClean.Domain.Interfaces;
 
 namespace SOSBackClean.API
 {
     public static class EntryPoint
     {
-        public static TestServices TesteServices()
+
+        public static ServiceProvider Provider()
         {
-            var formRepo = new FormularioRepository();
-            var funRepo = new FuncionarioRepository();
-            var predioRepo = new PredioRepository();
+            var services = new ServiceCollection();
 
-            var loggerFactory =
-            LoggerFactory.Create(builder => { });
+            services.AddSingleton<ICatalogService, CatalogService>();
+
+            services.AddSingleton<FuncionarioRepo, FuncionarioRepository>();
+
+            services.AddSingleton<PredioRepo, PredioRepository>();
+
+            services.AddSingleton<FormularioRepo, FormularioRepository>();
+
+            services.AddSingleton<IProtocolGenerator, ProtocolGenerator>();
+
+            services.AddSingleton<IFormsCreationService, FormularioCreationService>();
+
+            services.AddSingleton<IFormsQueryService, FormularioQueryService>();
+
+            services.AddSingleton<IFormsManegementService, FormularioManagementService>();
 
 
-            var config = new MapperConfiguration(cfg => cfg.AddProfile(new DomainToDTOMappingProfile()), loggerFactory);
+            var provider = services.BuildServiceProvider();
 
-            var mapper = config.CreateMapper();
-
-            return new TestServices(formRepo, funRepo, predioRepo, mapper);
+            return provider;
         }
+
 
     }
 }

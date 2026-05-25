@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SOSBackClean.Application.DTOs
+{
+    public record InfratorDTO
+    {
+        public int _infrator { get; set; }
+        public string _descricaoInfrator { get; set; }
+    }
+}

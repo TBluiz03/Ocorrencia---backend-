@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SOSBackClean.Application.DTOs;
 using SOSBackClean.Domain.Entities;
+using SOSBackClean.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,10 +29,25 @@ namespace SOSBackClean.Application.Mappings
                          dto._arquivo
                      ));
 
-            CreateMap<Formulario, FormularioDetailsDTO>();
-            CreateMap<Formulario, FormularioListItemDTO>();
-            CreateMap<Funcionario, FuncionarioDTO>();
+            CreateMap<Formulario, FormularioDetailsDTO>().ForMember(
+                dest => dest._descricaoInfracao,
+                opt => opt.MapFrom(src => src._tipoInfracao.ToString())
+                ).ForMember(dest => dest._descricaoInfrator,
+                opt => opt.MapFrom(src => src._infrator.ToString())
+                );
+
+            CreateMap<Formulario, FormularioListItemDTO>().ForMember(
+                dest => dest._descricaoInfracao,
+                opt => opt.MapFrom(src => src._tipoInfracao.ToString())
+                );
+
+            CreateMap<Funcionario, FuncionarioDTO>().ForMember(
+                dest => dest._descricaoCargo,
+                opt => opt.MapFrom(src => src._cargo.ToString())
+                );
+
             CreateMap<Predio, PredioDTO>();
+
         }
     }
 }

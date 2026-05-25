@@ -5,6 +5,7 @@ using SOSBackClean.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,6 +24,12 @@ namespace SOSBackClean.Data.Repositories
             await _formularioContext.SaveChangesAsync();
             return formulario;
         }
+
+        public async Task<bool> ExistsProtocol(string protocol)
+        {
+            return await _formularioContext.Formulario.AnyAsync(f => f._protocolo == protocol);
+        }
+
 
         public async Task<Formulario> GetFormularioById(int id)
         {
@@ -60,5 +67,7 @@ namespace SOSBackClean.Data.Repositories
             await _formularioContext.SaveChangesAsync();
             return formulario;
         }
+
+       
     }
 }
