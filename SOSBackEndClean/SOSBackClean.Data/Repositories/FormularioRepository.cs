@@ -14,9 +14,9 @@ namespace SOSBackClean.Data.Repositories
     public class FormularioRepository : FormularioRepo
     {
         private readonly ApiDbContext _formularioContext;
-        public FormularioRepository()
+        public FormularioRepository(ApiDbContext formularioContext)
         {
-            _formularioContext = new ApiDbContext();
+            _formularioContext = formularioContext;
         }
         public async Task<Formulario> Create(Formulario formulario)
         {

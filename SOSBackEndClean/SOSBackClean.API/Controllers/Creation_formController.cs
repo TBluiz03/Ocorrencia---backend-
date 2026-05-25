@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using SOSBackClean.Application.DTOs;
+using SOSBackClean.Application.DTOs.Formulario;
 using SOSBackClean.Application.Interfaces;
 using SOSBackClean.Application.Mappings;
 using SOSBackClean.Application.Services;
@@ -15,19 +15,24 @@ namespace SOSBackClean.API.Controllers
     [Route("Api/Creation")]
     public class Creation_formController : Controller
     {
+        private readonly IFormsCreationService _formsCreationService;
+
+        public Creation_formController(IFormsCreationService formsCreationService)
+        {
+            _formsCreationService = formsCreationService;
+        }
+
         [HttpGet]
         public async Task<IActionResult> Get() {
             return Ok(
-                await EntryPoint.Provider()
-                .GetRequiredService<IFormsCreationService>()
+                await _formsCreationService
                 .GetDataToForms()
                 );
         }
 
         [HttpPost]
         public async Task<IActionResult> Post(CreateFormularioDTO dto) {
-            await EntryPoint.Provider()
-                .GetRequiredService<IFormsCreationService>()
+            await _formsCreationService
                 .CreateFormulario(dto);
 
             return Ok();

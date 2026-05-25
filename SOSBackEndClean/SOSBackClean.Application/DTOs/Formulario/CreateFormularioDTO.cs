@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace SOSBackClean.Application.DTOs
+namespace SOSBackClean.Application.DTOs.Formulario
 {
     public record CreateFormularioDTO
     {
@@ -22,7 +22,7 @@ namespace SOSBackClean.Application.DTOs
 
         [MaxLength(15)]
         [JsonPropertyName("Sala")]
-        public string? _sala { get; set;  }
+        public string? _sala { get; set; }
 
         [Range(1, 9999)]
         [JsonPropertyName("AndarOcorrencia")]
@@ -33,7 +33,7 @@ namespace SOSBackClean.Application.DTOs
 
         [Required(ErrorMessage = "O infrator é necessário para a ocorrência")]
         [JsonPropertyName("Id_Infrator")]
-        public INFRATOR _infrator { get; set; } 
+        public INFRATOR _infrator { get; set; }
 
         [Required(ErrorMessage = "O tipo da infração é obrigatório")]
         [JsonPropertyName("Id_Infracao")]

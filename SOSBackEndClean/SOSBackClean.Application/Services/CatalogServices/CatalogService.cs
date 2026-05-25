@@ -1,4 +1,5 @@
 ﻿using SOSBackClean.Application.DTOs;
+using SOSBackClean.Application.DTOs.Catalogs;
 using SOSBackClean.Application.Interfaces;
 using SOSBackClean.Domain.ValueObjects;
 using System;

@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
-using SOSBackClean.Application.DTOs;
+using SOSBackClean.Application.DTOs.Formulario;
+using SOSBackClean.Application.DTOs.Funcionario;
+using SOSBackClean.Application.DTOs.Predio;
 using SOSBackClean.Domain.Entities;
 using SOSBackClean.Domain.ValueObjects;
 using System;

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Logging;
-using SOSBackClean.Application.DTOs;
+using SOSBackClean.Application.DTOs.Formulario;
 using SOSBackClean.Application.Interfaces;
 using SOSBackClean.Application.Mappings;
 using SOSBackClean.Domain.Interfaces;
@@ -19,14 +19,14 @@ namespace SOSBackClean.Application.Services.FormularioServices
         private readonly IMapper _mapper;
 
         public FormularioManagementService(
-            FormularioRepo formularioRepository
+            FormularioRepo formularioRepository,
+            IMapper mapper
             )
         {
             _formularioRepo = formularioRepository;
 
-            var loggerFactory = LoggerFactory.Create(builder => { });
-            var config = new MapperConfiguration(cfg => cfg.AddProfile(new DomainToDTOMappingProfile()), loggerFactory); var mapper = config.CreateMapper();
-            _mapper = config.CreateMapper();
+
+            _mapper = mapper;
         }
 
         public async Task<FormularioDetailsDTO> ResolveForm(ResolveFormularioDTO dto)

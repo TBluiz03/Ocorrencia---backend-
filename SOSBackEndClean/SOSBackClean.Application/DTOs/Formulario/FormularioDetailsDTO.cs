@@ -1,4 +1,6 @@
-﻿using SOSBackClean.Domain.Entities;
+﻿using SOSBackClean.Application.DTOs.Funcionario;
+using SOSBackClean.Application.DTOs.Predio;
+using SOSBackClean.Domain.Entities;
 using SOSBackClean.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace SOSBackClean.Application.DTOs
+namespace SOSBackClean.Application.DTOs.Formulario
 {
     public record FormularioDetailsDTO
     {
@@ -52,8 +54,8 @@ namespace SOSBackClean.Application.DTOs
         public string _protocolo { get; set; }
         public FuncionarioDTO? Funcionario { get; set; }
         public PredioDTO Predio { get; set; }
-        
-        
+
+
 
     }
 }

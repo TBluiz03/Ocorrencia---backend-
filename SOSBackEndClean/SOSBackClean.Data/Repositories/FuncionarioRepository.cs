@@ -14,9 +14,9 @@ namespace SOSBackClean.Data.Repositories
     public class FuncionarioRepository : FuncionarioRepo
     {
         private readonly ApiDbContext _funcionarioContext;
-        public FuncionarioRepository()
+        public FuncionarioRepository(ApiDbContext funcionarioContext)
         {
-            _funcionarioContext = new ApiDbContext(); //Provisório, apenas para testes, depois unificar em um Bootstrap
+            _funcionarioContext = funcionarioContext;
         }
 
         

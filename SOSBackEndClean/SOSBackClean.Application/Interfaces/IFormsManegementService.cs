@@ -1,4 +1,4 @@
-﻿using SOSBackClean.Application.DTOs;
+﻿using SOSBackClean.Application.DTOs.Formulario;
 using System;
 using System.Collections.Generic;
 using System.Linq;

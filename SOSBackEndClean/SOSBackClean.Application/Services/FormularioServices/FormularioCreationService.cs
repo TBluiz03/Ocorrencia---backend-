@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Logging;
-using SOSBackClean.Application.DTOs;
+using SOSBackClean.Application.DTOs.Formulario;
+using SOSBackClean.Application.DTOs.Funcionario;
+using SOSBackClean.Application.DTOs.Predio;
 using SOSBackClean.Application.Interfaces;
 using SOSBackClean.Application.Mappings;
 using SOSBackClean.Domain.Entities;
@@ -29,22 +31,18 @@ namespace SOSBackClean.Application.Services.FormularioServices
             FuncionarioRepo funcionarioRepository,
             FormularioRepo formularioRepository,
             IProtocolGenerator protocolGenerator,
-            ICatalogService catalogService
+            ICatalogService catalogService,
+            IMapper mapper
             )
         {
-            
             _predioRepo = predioRepository;
             _funcionarioRepo = funcionarioRepository;
             _formularioRepo = formularioRepository;
 
-
             _catalogService = catalogService;
             _protocolGenerator = protocolGenerator;
 
-
-            var loggerFactory = LoggerFactory.Create(builder => { });
-            var config = new MapperConfiguration(cfg => cfg.AddProfile(new DomainToDTOMappingProfile()), loggerFactory); var mapper = config.CreateMapper();
-            _mapper = config.CreateMapper();
+            _mapper = mapper;
         }
 
         public async Task<CreateFormularioDataDTO> GetDataToForms()

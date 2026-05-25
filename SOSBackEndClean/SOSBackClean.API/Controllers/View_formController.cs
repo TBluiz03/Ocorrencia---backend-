@@ -10,22 +10,23 @@ namespace SOSBackClean.API.Controllers
     [Route("Api/View")]
     public class View_formController : Controller
     {
+        private readonly IFormsQueryService _formsQueryService;
+
+        public View_formController(IFormsQueryService formsQueryService)
+        {
+            _formsQueryService = formsQueryService;
+        }
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(await EntryPoint.Provider()
-                .GetRequiredService<IFormsQueryService>()
-                .GetFormsItems()
-                );
+            return Ok(await _formsQueryService.GetFormsItems());
         }
 
         [HttpGet("Details")]
         public async Task<IActionResult> GetDetails(string protocolo)
         {
-            return Ok(await EntryPoint.Provider()
-                .GetRequiredService<IFormsQueryService>()
-                .GetFormDetails(protocolo)
-                );
+            return Ok(await _formsQueryService.GetFormDetails(protocolo));
         }
         
 

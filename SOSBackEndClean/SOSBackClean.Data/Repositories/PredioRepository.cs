@@ -14,9 +14,9 @@ namespace SOSBackClean.Data.Repositories
     {
         private readonly ApiDbContext _predioContext;
 
-        public PredioRepository()
+        public PredioRepository(ApiDbContext predioContext)
         {
-            _predioContext = new ApiDbContext(); //Provisório, apenas para testes, depois unificar em um Bootstrap
+             _predioContext = predioContext;
         }
         public async Task<Predio> AtualizarPredio(Predio predio)
         {

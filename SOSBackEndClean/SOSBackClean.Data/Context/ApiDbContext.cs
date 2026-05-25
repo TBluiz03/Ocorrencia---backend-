@@ -10,7 +10,7 @@ namespace SOSBackClean.Data.Context
 {
     public class ApiDbContext : DbContext
     {
-        public ApiDbContext() 
+        public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options) 
         {
             
         }
@@ -19,19 +19,10 @@ namespace SOSBackClean.Data.Context
         public DbSet<Predio> Predio { get; set;}
         public DbSet<Formulario> Formulario { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            var connectionString = "server=localhost;database=TestDb;user=root;password=root123";
-
-            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApiDbContext).Assembly);
         }
-
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SOSBackClean.Application.DTOs
+namespace SOSBackClean.Application.DTOs.Catalogs
 {
     public record InfratorDTO
     {

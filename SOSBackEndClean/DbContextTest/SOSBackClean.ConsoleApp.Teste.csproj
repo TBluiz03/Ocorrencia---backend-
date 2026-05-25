@@ -8,9 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SOSBackClean.API\SOSBackClean.API.csproj" />
     <ProjectReference Include="..\SOSBackClean.Application\SOSBackClean.Application.csproj" />
     <ProjectReference Include="..\SOSBackClean.Data\SOSBackClean.Data.csproj" />
     <ProjectReference Include="..\SOSBackClean.Domain\SOSBackClean.Domain.csproj" />
+    <ProjectReference Include="..\SOSBackClean.Infra.IoC\SOSBackClean.Infra.IoC.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,13 +6,13 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace SOSBackClean.Application.DTOs
+namespace SOSBackClean.Application.DTOs.Formulario
 {
     public record ResolveFormularioDTO
     {
         [Required]
         [Range(1, 9999)]
-        public int Id {  get; set; }
+        public int Id { get; set; }
 
         [Required]
         [MinLength(15)]

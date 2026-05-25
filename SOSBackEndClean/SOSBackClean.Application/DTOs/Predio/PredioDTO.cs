@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace SOSBackClean.Application.DTOs
+namespace SOSBackClean.Application.DTOs.Predio
 {
     public record PredioDTO
     {

@@ -8,10 +8,17 @@ namespace SOSBackClean.API.Controllers
     [Route("Api/Catalogs")]
     public class Value_catalogController : Controller
     {
+        private readonly ICatalogService _catalogService;
+
+        public Value_catalogController(ICatalogService catalogService)
+        {
+            _catalogService = catalogService;
+        }
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(EntryPoint.Provider().GetRequiredService<ICatalogService>().GetValuesCatalogos());
+            return Ok(_catalogService.GetValuesCatalogos());
         }
     }
 }
