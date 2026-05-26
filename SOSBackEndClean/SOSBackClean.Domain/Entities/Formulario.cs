@@ -62,11 +62,13 @@ namespace SOSBackClean.Domain.Entities
             //Criar validação para verificar se o protocolo é único (Luiz).
 
             DomainValidation.When(infrator == 0 && funcionario_id <= 0, "A ocorrência não bate com os requisitos, funcionario inexistente");
+            DomainValidation.When(infrator == 0 && funcionario_id == 0, "A ocorrência não bate com os requisitos, funcionario inexistente");
             DomainValidation.When(andarOcorrencia == 0, "O andar da ocorrência é obrigatório.");
             DomainValidation.When(andarOcorrencia < 0, "O andar da ocorrência não pode ter valores negativos.");
-            DomainValidation.When(tipoInfracao == 0, "O tipo de infração é obrigatório.");
+            DomainValidation.When(tipoInfracao is < 0 or > (INFRACAO)4, "O tipo de infração é inválido");
             DomainValidation.When(string.IsNullOrEmpty(descricao), "A descrição da ocorrência é obrigatória.");
             DomainValidation.When(predio_id == 0, "O ID do prédio é obrigatório.");
+            DomainValidation.When(infrator is < 0 or > (INFRATOR)3, "O infrator é inválido.");
 
             _infrator = infrator;
             _nomeOfendido = nomeOfendido;
@@ -109,5 +111,6 @@ namespace SOSBackClean.Domain.Entities
         {
             _infrator = novoInfrator;
         }
+
     }
 }
