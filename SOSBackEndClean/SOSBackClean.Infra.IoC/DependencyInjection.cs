@@ -26,7 +26,7 @@ namespace SOSBackClean.Infra.IoC
 
             services.AddDbContext<ApiDbContext>(options =>
             options.UseMySql(connectionString,
-            ServerVersion.AutoDetect(connectionString),
+            new MySqlServerVersion(new Version(9,4,0)),
             b => b.MigrationsAssembly(typeof(ApiDbContext).Assembly.FullName)
             ));
 
