@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using SOSBackClean.Data.Context;
 using SOSBackClean.Infra.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,6 +31,16 @@ if (true)
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+
+using (var scope =
+      app.Services.CreateScope())
+{
+    var context =
+        scope.ServiceProvider
+             .GetRequiredService<ApiDbContext>();
+
+    context.Database.Migrate();
 }
 
 app.UseHttpsRedirection();
