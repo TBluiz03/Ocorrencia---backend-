@@ -58,16 +58,20 @@ namespace SOSBackClean.Domain.Entities
             string descricao,
             string? arquivo)
         {
-          
-            if(funcionario_id == 0)
+
+            if (funcionario_id.HasValue)
             {
-                DomainValidation.When(infrator is 0, "O infrator é inválido pois não foi enviado um funcionário.");
+                DomainValidation.When(
+                    infrator != INFRATOR.FUNCIONARIO,
+                    "Quando existir funcionário, o infrator deve ser FUNCIONARIO.");
             }
             else
             {
-                DomainValidation.When(infrator > 0, "O tipo de infrator é inválido pois foi enviado um funcionário.");
+                DomainValidation.When(
+                    infrator == INFRATOR.FUNCIONARIO,
+                    "Não é possível usar FUNCIONARIO sem funcionário.");
             }
-          
+
             DomainValidation.When(funcionario_id < 0, "A ocorrência não bate com os requisitos, funcionário inexistente");
             DomainValidation.When(andarOcorrencia == 0, "O andar da ocorrência é obrigatório.");
             DomainValidation.When(andarOcorrencia < 0, "O andar da ocorrência não pode ter valores negativos.");

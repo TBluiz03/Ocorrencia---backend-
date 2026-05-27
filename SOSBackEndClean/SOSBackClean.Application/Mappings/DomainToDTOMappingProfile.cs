@@ -24,7 +24,7 @@ namespace SOSBackClean.Application.Mappings
                          dto.Predio_id,
                          dto._sala,
                          dto._andarOcorrencia,
-                         dto.Funcionario_id ?? 0,
+                         dto.Funcionario_id,
                          dto._infrator,
                          dto._tipoInfracao,
                          dto._descricao,
