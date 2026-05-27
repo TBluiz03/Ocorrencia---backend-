@@ -26,7 +26,7 @@ namespace SOSBackClean.Domain.Entities
         
         public int Predio_id { get; set; }
         public Predio Predio { get; set; }
-        public int Funcionario_id { get; set; }
+        public int? Funcionario_id { get; set; }
         public Funcionario? Funcionario { get; set; }
 
      
@@ -35,7 +35,7 @@ namespace SOSBackClean.Domain.Entities
             int predio_id,
             string? sala,
             int andarOcorrencia,
-            int funcionario_id,
+            int? funcionario_id,
             INFRATOR infrator,
             INFRACAO tipoInfracao,
             string descricao,
@@ -52,23 +52,29 @@ namespace SOSBackClean.Domain.Entities
             int predio_id,
             string? sala,
             int andarOcorrencia,
-            int funcionario_id,
+            int? funcionario_id,
             INFRATOR infrator,
             INFRACAO tipoInfracao,
             string descricao,
             string? arquivo)
         {
-            //Criar validações
-            //Criar validação para verificar se o protocolo é único (Luiz).
-
-            DomainValidation.When(infrator == 0 && funcionario_id <= 0, "A ocorrência não bate com os requisitos, funcionario inexistente");
-            DomainValidation.When(infrator == 0 && funcionario_id == 0, "A ocorrência não bate com os requisitos, funcionario inexistente");
+          
+            if(funcionario_id == 0)
+            {
+                DomainValidation.When(infrator is 0, "O infrator é inválido pois não foi enviado um funcionário.");
+            }
+            else
+            {
+                DomainValidation.When(infrator > 0, "O tipo de infrator é inválido pois foi enviado um funcionário.");
+            }
+          
+            DomainValidation.When(funcionario_id < 0, "A ocorrência não bate com os requisitos, funcionário inexistente");
             DomainValidation.When(andarOcorrencia == 0, "O andar da ocorrência é obrigatório.");
             DomainValidation.When(andarOcorrencia < 0, "O andar da ocorrência não pode ter valores negativos.");
             DomainValidation.When(tipoInfracao is < 0 or > (INFRACAO)4, "O tipo de infração é inválido");
             DomainValidation.When(string.IsNullOrEmpty(descricao), "A descrição da ocorrência é obrigatória.");
-            DomainValidation.When(predio_id == 0, "O ID do prédio é obrigatório.");
-            DomainValidation.When(infrator is < 0 or > (INFRATOR)3, "O infrator é inválido.");
+            DomainValidation.When(predio_id <= 0, "O ID do prédio é obrigatório.");
+            DomainValidation.When(infrator is < 0 or > (INFRATOR)2, "O infrator é inválido.");
 
             _infrator = infrator;
             _nomeOfendido = nomeOfendido;
@@ -87,7 +93,6 @@ namespace SOSBackClean.Domain.Entities
             _protocolo = protocolo;
         }
 
-        //Precisamos de métodos para atualizar feedback 
         public void ResolverOcorrencia(string feedback)
         {
             DomainValidation.When(string.IsNullOrEmpty(feedback), "O feedback é obrigatório.");
@@ -111,6 +116,5 @@ namespace SOSBackClean.Domain.Entities
         {
             _infrator = novoInfrator;
         }
-
     }
 }

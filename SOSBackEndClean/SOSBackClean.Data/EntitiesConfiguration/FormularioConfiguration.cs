@@ -47,7 +47,7 @@ namespace SOSBackClean.Data.EntitiesConfiguration
             // FUNCIONARIO_ID (FK)
             builder.Property(x => x.Funcionario_id)
                 .HasColumnName("Funcionario_id")
-                .IsRequired();
+                .IsRequired(false);
 
             // INFRATOR (ENUM -> INT)
             builder.Property(x => x._infrator)

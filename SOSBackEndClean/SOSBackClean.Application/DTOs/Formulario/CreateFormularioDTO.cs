@@ -28,7 +28,6 @@ namespace SOSBackClean.Application.DTOs.Formulario
         [JsonPropertyName("AndarOcorrencia")]
         public int _andarOcorrencia { get; set; }
 
-        [Range(0, 9999)]
         public int? Funcionario_id { get; set; }
 
         [Required(ErrorMessage = "O infrator é necessário para a ocorrência")]
