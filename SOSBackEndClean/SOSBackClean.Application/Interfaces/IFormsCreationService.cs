@@ -10,6 +10,6 @@ namespace SOSBackClean.Application.Interfaces
     public interface IFormsCreationService
     {
         Task<CreateFormularioDataDTO> GetDataToForms();
-        Task CreateFormulario(CreateFormularioDTO Dto);
+        Task<string> CreateFormulario(CreateFormularioDTO Dto);
     }
 }

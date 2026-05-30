@@ -32,11 +32,10 @@ namespace SOSBackClean.API.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Post(CreateFormularioDTO dto) {
-            await _formsCreationService
-                .CreateFormulario(dto);
-
-           
-            return Ok();
+            return Ok(
+                await _formsCreationService
+                .CreateFormulario(dto)
+                );
         }
 
     }

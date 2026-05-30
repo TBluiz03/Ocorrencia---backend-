@@ -59,13 +59,15 @@ namespace SOSBackClean.Application.Services.FormularioServices
             };
         }
 
-        public async Task CreateFormulario(CreateFormularioDTO Dto)
+        public async Task<string> CreateFormulario(CreateFormularioDTO Dto)
         {
             var formulario = _mapper.Map<Formulario>(Dto);
 
             formulario.SetProtocolo(await _protocolGenerator.GenerateProtocolAsync());
 
             await _formularioRepo.Create(formulario);
+
+            return formulario._protocolo;
         }
     }
 }
